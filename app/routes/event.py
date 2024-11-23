@@ -76,5 +76,3 @@ def process_event(body: event.InputBody) -> event.OutputBody:
     
     finally:
         connection.close()
-        return event.OutputBody(message="Unknown error happened")
-
