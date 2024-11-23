@@ -2,7 +2,9 @@ from pydantic import BaseModel
 
 
 class InputBody(BaseModel):
-    file: str
+    parking_id: int
+    event_type: str
+    time: str
 
 
 class OutputBody(BaseModel):

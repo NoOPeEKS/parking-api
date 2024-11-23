@@ -2,11 +2,10 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# from app.routes import chat, index
+from routes import event
 
 app = FastAPI()
-# app.include_router(index.router)
-# app.include_router(chat.router)
+app.include_router(event.router)
 
 
 app.add_middleware(
@@ -22,8 +21,8 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"message": "hola"}
+    return {"message": "API Working"}
 
 
 if __name__ == "__main__":
-    uvicorn.run("app.main:app", host="0.0.0.0", port=80, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=True)
