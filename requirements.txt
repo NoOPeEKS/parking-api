@@ -1,3 +1,5 @@
 fastapi
 pydantic
 pysqlite3
+uvicorn
+ruff
