@@ -2,10 +2,11 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routes import event
+from routes import event, parking
 
 app = FastAPI()
 app.include_router(event.router)
+app.include_router(parking.router)
 
 
 app.add_middleware(
