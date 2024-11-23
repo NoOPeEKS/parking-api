@@ -1,5 +1,6 @@
 import sqlite3
 from fastapi import APIRouter, HTTPException
+from models import parking
 
 router = APIRouter(prefix="/parking")
 
@@ -31,13 +32,13 @@ def get_parking_info(parking_id: int):
 
         result = cursor.fetchone()
         if result:
-            return {
-                "parking_id": result[0],
-                "max_spots": result[1],
-                "occupied_spots": result[2],
-                "coordinates": result[3],
-                "name": result[4]
-            }
+            return parking.OutputBody(
+                parking_id=result[0],
+                max_spots=result[1],
+                occupied_spots=result[2],
+                coordinates=result[3],
+                name=result[4],
+            )
         else:
             raise HTTPException(status_code=404, detail="Parking lot not found")
 
