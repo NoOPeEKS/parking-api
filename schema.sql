@@ -24,3 +24,8 @@ CREATE TABLE SpotHistory (
     FOREIGN KEY (parking_id) REFERENCES Parking(id)
 );
 
+INSERT INTO Parking (name, coordinates, max_spots)
+VALUES 
+    ('Downtown Parking', '40.712776,-74.005974', 100),
+    ('Airport Parking', '37.621313,-122.378955', 500),
+    ('Mall Parking', '34.052235,-118.243683', 200);
