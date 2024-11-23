@@ -67,12 +67,14 @@ def process_event(body: event.InputBody) -> event.OutputBody:
         # Commit changes
         connection.commit()
         print(f"Event and updated free spots saved successfully for parking_id {body.parking_id}.")
+        return event.OutputBody(message="Worked")
     
     except Exception as e:
         print(f"Error: {e}")
         connection.rollback()
+        return event.OutputBody(message=f"error happened: {e}")
     
     finally:
         connection.close()
+        return event.OutputBody(message="Unknown error happened")
 
-    return event.OutputBody(message="Worked")
