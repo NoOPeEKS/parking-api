@@ -3,3 +3,4 @@ pydantic
 pysqlite3
 uvicorn
 ruff
+pandas
