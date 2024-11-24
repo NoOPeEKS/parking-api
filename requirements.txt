@@ -4,3 +4,5 @@ pysqlite3
 uvicorn
 ruff
 pandas
+xgboost
+scikit_learn
