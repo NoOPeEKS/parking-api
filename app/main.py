@@ -2,13 +2,14 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from routes import event, parking, historic, list_parkings
+from routes import event, parking, historic, list_parkings, predict
 
 app = FastAPI()
 app.include_router(event.router)
 app.include_router(parking.router)
 app.include_router(historic.router)
 app.include_router(list_parkings.router)
+app.include_router(predict.router)
 
 
 app.add_middleware(
